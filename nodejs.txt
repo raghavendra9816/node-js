@@ -1,0 +1,3 @@
+What is node js
+=>A node js is simply a run time environment that is used to execute 
+the java script code
