@@ -15,18 +15,18 @@ const getDay = () => {
   ];
   return day[now];
 };
-const propercase = (input) => {
-  return input.charAt(0).toUpperCase() + slice(1);
-};
+// const propercase = (input) => {
+//   return input.charAt(0).toUpperCase() + slice(1);
+// };
 
 //write a ja module to create string function
 
 //-convert to proper case ;"achyut adhikari"=>"Achyut Adhikari"
 const proper = (str1) => {
-  const arr = str1.split("").map((word) => {
-    return word[0].toUpperCase() + word.substring(1).toLowerCase();
-  });
-  return arr.join("");
+  const arr = str1
+    .split(" ")
+    .map((word) => word[0].toUpperCase() + word.slice(1).toLowerCase());
+  return arr.join(" ");
 };
 
 //- convert to turnicate; "Achyut is a good boy"=>"Achyut is good ..."

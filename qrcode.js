@@ -11,6 +11,4 @@ http
     }
   })
   .listen(8000);
-console.log("running on port 8000");
-
-
+console.log("running on port 8000 https://localhost:8000");
