@@ -21,12 +21,16 @@ async function main() {
     to: "achyuta019314@nec.edu.np", // list of receivers
     subject: "Hello ✔", // Subject line
     text: "Hello world?", // plain text body
-    html: "<b>hello world</b>",
+    html: "<img src='cid:image'/>",
 
     attachments: [
       {
-        filename: "./output.pdf",
-        content: "hello pdf",
+        path: "./output.pdf",
+      },
+      {
+        filename: "bb.jpg",
+        path: "./bb.jpg",
+        cid: "image", //same cid value as in the html img src
       },
     ], // html body
   });
@@ -36,3 +40,11 @@ async function main() {
 }
 
 main().catch(console.error);
+
+//1.write the node js module to encrypt and verify the  password using bcryptjs
+//encrypt password
+//verify password(hash pass)
+
+//2. write node js module to create and verify jwt token usoing jsonwebtoken.
+//createtoken():string
+//verifytoken():boolean
