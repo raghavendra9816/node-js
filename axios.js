@@ -6,6 +6,13 @@ const getMyWeather = async (url) => {
     data: { hourly },
   } = await axios.get(url);
   console.log(hourly);
+  const { time, temperature_2m } = hourly;
+  const now = new Date().toISOString().split(":")[0].split("T");
+  now[1] = Number(now[1]) + 6;
+  const currentTime = now.join("T").concat(":00");
+  const timeIndex = time.indexOf(currentTime);
+  console.log(temperature_2m[timeIndex]);
+  return temperature_2m[timeIndex];
 };
 getMyWeather(
   "https://api.open-meteo.com/v1/forecast?latitude=27.70&longitude=85.32&hourly=temperature_2m&daily=sunrise,sunset&forecast_days=1&timezone=auto"
