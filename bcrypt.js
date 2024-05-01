@@ -1,13 +1,11 @@
-const bcrypt = require("bcryptjs");
-const encryptpass = (password) => {
-  bcrypt.genSalt(10, function (err, salt) {
-    bcrypt.hash("B4c0//", salt, function (err, hash) {
-      // Store hash in your password DB.
-    });
-  });
-};
-const verifypass = () => {};
+require("dotenv").config();
 
-//home work
-//HTML
-// 
+const bcryptjs = require("bcryptjs");
+const encryptpassword = (password) =>
+  bcryptjs.hashSync(password, Number(process.env.SALT_ROUND));
+console.log(encryptpassword("achyut")); //hash generate garcha
+
+const verifypass = (hashpw, password) => bcryptjs.compareSync(password, hashpw);
+
+const hpw = encryptpassword("achyut"); //password same xa ki xaina verify garcha
+console.log(verifypass(hpw, "achyut"));
